@@ -192,6 +192,23 @@ form button {
   margin-left: 1rem;
 }
 
+.split h3 {
+  align-self: center;
+  font-size: 2.5rem;
+}
+
+.split {
+  /* align-self: center; */
+  height: 500px;
+}
+
+.split button {
+  /* align-self: baseline; */
+  /* font-size: 3rem; */
+  justify-items: baseline;
+  margin-top: 12.2rem;
+}
+
 input {
   width: 50%;
   height: 30px;
