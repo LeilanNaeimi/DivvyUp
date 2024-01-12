@@ -23,14 +23,19 @@ const initialFriends = [
 ];
 
 export default function App() {
+  const [showAddFreind, setShowAddFreind] = useState(false);
+
+  function handleShowAddFreind() {
+    setShowAddFreind(!showAddFreind);
+  }
+
   return (
     <div className="app">
       <div className="left">
-        <Peoples />
-        <button>
-          <span>Add New</span>
+        <Peoples /> {showAddFreind && <AddFreind />}
+        <button className="addnew" onClick={handleShowAddFreind}>
+          <span>{showAddFreind == false ? "Add New Freind" : "Close"}</span>
         </button>
-        <AddNewPeople />
       </div>
       <Split />
       <ButtonUI />
@@ -83,7 +88,7 @@ function People({ ppl }) {
   );
 }
 
-function AddNewPeople() {
+function AddFreind({ showAddFreind }) {
   return (
     <form className="addnew">
       <div className="addnew-input-group">
@@ -95,7 +100,7 @@ function AddNewPeople() {
         <input type="text" id="img" />
       </div>
       <button>
-        <span>Add New</span>
+        <span>Add Freind</span>
       </button>
     </form>
   );

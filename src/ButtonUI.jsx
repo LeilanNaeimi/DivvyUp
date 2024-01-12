@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-export default function ButtonUI() {
+export default function ButtonUI({ onClick }) {
   const [pointer, setPointer] = useState({ x: 0, y: 0 });
 
   const syncPointer = ({ clientX, clientY }) => {
