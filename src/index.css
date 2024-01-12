@@ -38,6 +38,8 @@
 
   --bg: #2b2a2a;
   --color-light1: #e8f6ef;
+  --color-green: #36dfc0;
+  --color-red: #e05b5b;
 
   --size: 100px;
   --glow: radial-gradient(
@@ -102,11 +104,11 @@ body {
 
 .people {
   height: 300px;
-  height: 400px;
+  height: 405px;
 }
 
 .peoplelist {
-  height: 350px;
+  height: 360px;
   font-size: 1.4rem;
   padding: 2px;
   gap: 0.4rem;
@@ -120,7 +122,7 @@ ul {
   list-style: none;
   display: flex;
   flex-direction: column;
-  height: 350px;
+  height: 370px;
   overflow-y: scroll;
   margin-right: 10px;
 }
@@ -145,6 +147,9 @@ li img {
   grid-row: span 2;
 }
 
+li p {
+  font-size: 1.6rem;
+}
 .addnew {
   height: 170px;
   display: flex;
@@ -219,4 +224,12 @@ button::after {
   border: 4px solid transparent;
   background: var(--glow);
   border-radius: 1rem;
+}
+
+.green {
+  color: var(--color-green);
+}
+
+.red {
+  color: var(--color-red);
 }
