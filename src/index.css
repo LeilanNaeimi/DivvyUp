@@ -36,7 +36,7 @@
   --yp: 0;
   --hue: calc(0 + (var(--xp) * 500));
 
-  --bg: #2c2b2b;
+  --bg: #2b2a2a;
   --color-light1: #e8f6ef;
 
   --size: 100px;
@@ -73,6 +73,8 @@ body {
   font-family: "SF Pro Text", "SF Pro Icons", "AOS Icons", "Helvetica Neue",
     Helvetica, Arial, sans-serif, system-ui;
   background: var(--bg);
+
+  color: white;
 }
 
 .app {
@@ -126,7 +128,6 @@ ul {
 li {
   display: grid;
   grid-template-columns: 4.8rem 1fr auto;
-  align-items: center;
   column-gap: 1.6rem;
 
   padding: 1.2rem;
@@ -145,22 +146,23 @@ li img {
 }
 
 .addnew {
-  height: 200px;
+  height: 170px;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
   font-size: 1.2rem;
 }
 
-.addnew input {
-  width: 200px;
-  height: 30px;
-  margin-bottom: 1rem;
-  border-radius: 3px;
-  margin-left: 10px;
+.addnew #img {
+  margin-bottom: 2rem;
+  margin-top: 1rem;
 }
 
-.input-group > :not(label) {
+.addnew input {
+  width: 70%;
+  height: 30px;
+  border-radius: 3px;
+  margin-left: 10px;
+  align-self: center;
 }
 
 .split {

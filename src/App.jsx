@@ -20,18 +20,6 @@ const initialFriends = [
     image: "https://i.pravatar.cc/48?u=499476",
     balance: 0,
   },
-  {
-    id: 499476,
-    name: "Anthony",
-    image: "https://i.pravatar.cc/48?u=499476",
-    balance: 0,
-  },
-  {
-    id: 499476,
-    name: "Anthony",
-    image: "https://i.pravatar.cc/48?u=499476",
-    balance: 0,
-  },
 ];
 
 export default function App() {
@@ -41,7 +29,6 @@ export default function App() {
         <Peoples />
         <AddNewPeople />
       </div>
-
       <Split />
       <ButtonUI />
     </div>
@@ -75,7 +62,20 @@ function People({ ppl }) {
       <button>
         <span>Select</span>
       </button>
-      <p>you owe sarah €{ppl.balance}</p>
+
+      {ppl.balance < 0 && (
+        <p className="red">
+          You owe {ppl.name} € {Math.abs(ppl.balance)}
+        </p>
+      )}
+
+      {ppl.balance > 0 && (
+        <p className="green">
+          {ppl.name} owes you € {Math.abs(ppl.balance)}
+        </p>
+      )}
+
+      {ppl.balance === 0 && <p>You are even!</p>}
     </li>
   );
 }
