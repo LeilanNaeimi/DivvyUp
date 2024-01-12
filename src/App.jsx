@@ -104,25 +104,27 @@ function AddNewPeople() {
 function Split() {
   return (
     <form className="split">
+      <h3>Split a bill with freinds</h3>
       <div className="split-input-group">
-        <label htmlFor="billvalue">Bill value</label>
+        <label htmlFor="billvalue">💲 Bill value</label>
         <input type="text" id="billvalue" />
       </div>
 
       <div className="split-input-group">
-        <label htmlFor="expense">Your Expense</label>
+        <label htmlFor="expense">🙋‍♂️ Your Expense</label>
         <input type="text" id="expense" />
       </div>
 
       <div className="split-input-group">
-        <label htmlFor="checkexp">Chek's Expense</label>
-        <input type="text" id="checkexp" />
+        <label htmlFor="pplexp">👩‍🦰 ppl Expense</label>
+        <input type="text" id="pplexp" disabled />
       </div>
 
       <div className="split-input-group">
-        <p>who's paying the bill?</p>
+        <p>💰 Who's paying the bill?</p>
         <select>
-          <option value="">You</option>
+          <option value="user">You</option>
+          <option value="ppl">X</option>
         </select>
       </div>
 
