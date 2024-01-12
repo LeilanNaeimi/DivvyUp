@@ -32,9 +32,9 @@ export default function App() {
   return (
     <div className="app">
       <div className="left">
-        <Peoples /> {showAddFreind && <AddFreind />}
+        <Freinds /> {showAddFreind && <AddFreind />}
         <button className="addnew" onClick={handleShowAddFreind}>
-          <span>{showAddFreind == false ? "Add New Freind" : "Close"}</span>
+          <span>{showAddFreind ? "Close" : "Add New Freind"}</span>
         </button>
       </div>
       <Split />
@@ -43,26 +43,27 @@ export default function App() {
   );
 }
 
-function Peoples() {
+function Freinds() {
   return (
     <div className="people">
-      <PeopleList />
+      <FreindsList />
     </div>
   );
 }
 
-function PeopleList() {
+function FreindsList() {
   const ppls = initialFriends;
+
   return (
-    <ul className="peoplelist">
+    <ul className="FreindsList">
       {ppls.map((ppl) => (
-        <People ppl={ppl} key={ppl.id} />
+        <Freind ppl={ppl} key={ppl.id} />
       ))}
     </ul>
   );
 }
 
-function People({ ppl }) {
+function Freind({ ppl }) {
   return (
     <li>
       <img src={ppl.image} alt={ppl.name} />
@@ -88,16 +89,46 @@ function People({ ppl }) {
   );
 }
 
-function AddFreind({ showAddFreind }) {
+function AddFreind() {
+  const [name, setName] = useState("");
+  const [image, setImage] = useState("https://i.pravatar.cc/48");
+
+  function handleSubmit(e) {
+    e.preventDefault();
+
+    if (!name || !image) return;
+
+    const id = crypto.randomUUID();
+    const newFreind = {
+      id,
+      name,
+      image: `${image}?=${id}`,
+      balance: 0,
+    };
+    // console.log(newFreind);
+    setName("");
+    setImage("https://i.pravatar.cc/48");
+  }
+
   return (
-    <form className="addnew">
+    <form className="addnew" onSubmit={handleSubmit}>
       <div className="addnew-input-group">
-        <label htmlFor="name">Name</label>
-        <input type="text" id="name" />
+        <label htmlFor="name">Freind Name</label>
+        <input
+          type="text"
+          id="name"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+        />
       </div>
       <div className="addnew-input-group">
         <label htmlFor="img">Image URL</label>
-        <input type="text" id="img" />
+        <input
+          type="text"
+          id="img"
+          value={image}
+          onChange={(e) => setImage(e.target.value)}
+        />
       </div>
       <button>
         <span>Add Freind</span>

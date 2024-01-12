@@ -111,14 +111,14 @@ body {
   height: 405px;
 }
 
-.peoplelist {
+.FreindsList {
   height: 360px;
   font-size: 1.4rem;
   padding: 2px;
   gap: 0.4rem;
 }
 
-.peoplelist button {
+.FreindsList button {
   margin-right: 10px;
 }
 
