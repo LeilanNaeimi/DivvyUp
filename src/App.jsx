@@ -27,6 +27,9 @@ export default function App() {
     <div className="app">
       <div className="left">
         <Peoples />
+        <button>
+          <span>Add New</span>
+        </button>
         <AddNewPeople />
       </div>
       <Split />
@@ -82,28 +85,50 @@ function People({ ppl }) {
 
 function AddNewPeople() {
   return (
-    <div className="addnew">
-      <div className="input-group">
+    <form className="addnew">
+      <div className="addnew-input-group">
         <label htmlFor="name">Name</label>
         <input type="text" id="name" />
       </div>
-      <div className="input-group">
+      <div className="addnew-input-group">
         <label htmlFor="img">Image URL</label>
         <input type="text" id="img" />
       </div>
       <button>
         <span>Add New</span>
       </button>
-    </div>
+    </form>
   );
 }
 
 function Split() {
   return (
-    <div className="split">
+    <form className="split">
+      <div className="split-input-group">
+        <label htmlFor="billvalue">Bill value</label>
+        <input type="text" id="billvalue" />
+      </div>
+
+      <div className="split-input-group">
+        <label htmlFor="expense">Your Expense</label>
+        <input type="text" id="expense" />
+      </div>
+
+      <div className="split-input-group">
+        <label htmlFor="checkexp">Chek's Expense</label>
+        <input type="text" id="checkexp" />
+      </div>
+
+      <div className="split-input-group">
+        <p>who's paying the bill?</p>
+        <select>
+          <option value="">You</option>
+        </select>
+      </div>
+
       <button>
         <span>Split Bill</span>
       </button>
-    </div>
+    </form>
   );
 }
