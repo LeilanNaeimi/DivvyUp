@@ -30,11 +30,15 @@ export default function App() {
     setShowAddFreind(!showAddFreind);
   }
 
+  function handleAddFreind(freind) {
+    setFreinds((freinds) => [...freinds, freind]);
+  }
+
   return (
     <div className="app">
       <div className="left ">
         <FreindsList freinds={freinds} />
-        {showAddFreind && <AddFreind />}
+        {showAddFreind && <AddFreind onAddFreind={handleAddFreind} />}
         <button className="addnew" onClick={handleShowAddFreind}>
           <span>{showAddFreind ? "Close" : "Add New Freind"}</span>
         </button>
@@ -81,7 +85,7 @@ function Freind({ freind }) {
   );
 }
 
-function AddFreind() {
+function AddFreind({ onAddFreind }) {
   const [name, setName] = useState("");
   const [image, setImage] = useState("https://i.pravatar.cc/48");
 
@@ -97,7 +101,8 @@ function AddFreind() {
       image: `${image}?=${id}`,
       balance: 0,
     };
-    // console.log(newFreind);
+
+    onAddFreind(newFreind);
     setName("");
     setImage("https://i.pravatar.cc/48");
   }
