@@ -25,7 +25,7 @@ const initialFriends = [
 export default function App() {
   const [showAddFreind, setShowAddFreind] = useState(false);
   const [freinds, setFreinds] = useState(initialFriends);
-  const [selectedFreind, setSelectedFreind] = useState(false);
+  const [selectedFreind, setSelectedFreind] = useState(null);
 
   function handleShowAddFreind() {
     setShowAddFreind(!showAddFreind);
@@ -38,7 +38,8 @@ export default function App() {
     // setShowAddFreind(false);
   }
 
-  function handleSeletedFreind() {
+  function handleSeletedFreind(freind) {
+    console.log(freind);
     setSelectedFreind(!selectedFreind);
   }
 
@@ -46,7 +47,9 @@ export default function App() {
     <div className="app">
       <div className="left ">
         <FreindsList freinds={freinds} onSelectedFreind={handleSeletedFreind} />
+
         {showAddFreind && <AddFreind onAddFreind={handleAddFreind} />}
+
         <button className="addnew" onClick={handleShowAddFreind}>
           <span>{showAddFreind ? "Close" : "Add New Freind"}</span>
         </button>
@@ -76,7 +79,8 @@ function Freind({ freind, onSelectedFreind }) {
     <li>
       <img src={freind.image} alt={freind.name} />
       <h3>{freind.name}</h3>
-      <button onClick={onSelectedFreind}>
+
+      <button onClick={() => onSelectedFreind(freind)}>
         <span>Select</span>
       </button>
 
