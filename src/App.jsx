@@ -39,8 +39,8 @@ export default function App() {
   }
 
   function handleSeletedFreind(freind) {
-    console.log(freind);
-    setSelectedFreind(!selectedFreind);
+    // console.log(freind);
+    setSelectedFreind(freind);
   }
 
   return (
@@ -54,7 +54,7 @@ export default function App() {
           <span>{showAddFreind ? "Close" : "Add New Freind"}</span>
         </button>
       </div>
-      {selectedFreind && <Split />}
+      {selectedFreind && <Split selectedFreind={selectedFreind} />}
       <ButtonUI />
     </div>
   );
@@ -150,10 +150,12 @@ function AddFreind({ onAddFreind }) {
   );
 }
 
-function Split() {
+function Split({ selectedFreind }) {
+  // console.log(selectedFreind);
   return (
     <form className="split">
-      <h3>Split a bill with freinds</h3>
+      <h3>Split a bill with {selectedFreind.name}</h3>
+
       <div className="split-input-group">
         <label htmlFor="billvalue">💲 Bill value</label>
         <input type="text" id="billvalue" />
@@ -166,14 +168,14 @@ function Split() {
 
       <div className="split-input-group">
         <label htmlFor="pplexp">👩‍🦰 ppl Expense</label>
-        <input type="text" id="pplexp" disabled />
+        <input type="text" id="pplexp" readOnly value={selectedFreind.name} />
       </div>
 
       <div className="split-input-group">
         <p>💰 Who's paying the bill?</p>
         <select>
           <option value="user">You</option>
-          <option value="ppl">X</option>
+          <option value="ppl">{selectedFreind.name}</option>
         </select>
       </div>
 
