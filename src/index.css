@@ -106,7 +106,11 @@ body {
   transition: background-size 0.24s;
 }
 
-.FreindsList,
+.FreindsList {
+  height: 388px;
+  font-size: 1.4rem;
+}
+
 .split {
   height: 450px;
 }
