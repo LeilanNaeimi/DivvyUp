@@ -25,6 +25,7 @@ const initialFriends = [
 export default function App() {
   const [showAddFreind, setShowAddFreind] = useState(false);
   const [freinds, setFreinds] = useState(initialFriends);
+  const [selectedFreind, setSelectedFreind] = useState(false);
 
   function handleShowAddFreind() {
     setShowAddFreind(!showAddFreind);
@@ -32,39 +33,50 @@ export default function App() {
 
   function handleAddFreind(freind) {
     setFreinds((freinds) => [...freinds, freind]);
+    // if i want to hide the add new friend form after each add
+    //use below but I dont want it
+    // setShowAddFreind(false);
+  }
+
+  function handleSeletedFreind() {
+    setSelectedFreind(!selectedFreind);
   }
 
   return (
     <div className="app">
       <div className="left ">
-        <FreindsList freinds={freinds} />
+        <FreindsList freinds={freinds} onSelectedFreind={handleSeletedFreind} />
         {showAddFreind && <AddFreind onAddFreind={handleAddFreind} />}
         <button className="addnew" onClick={handleShowAddFreind}>
           <span>{showAddFreind ? "Close" : "Add New Freind"}</span>
         </button>
       </div>
-      <Split />
+      {selectedFreind && <Split />}
       <ButtonUI />
     </div>
   );
 }
 
-function FreindsList({ freinds }) {
+function FreindsList({ freinds, onSelectedFreind }) {
   return (
     <ul className="FreindsList">
       {freinds.map((freind) => (
-        <Freind freind={freind} key={freind.id} />
+        <Freind
+          freind={freind}
+          onSelectedFreind={onSelectedFreind}
+          key={freind.id}
+        />
       ))}
     </ul>
   );
 }
 
-function Freind({ freind }) {
+function Freind({ freind, onSelectedFreind }) {
   return (
     <li>
       <img src={freind.image} alt={freind.name} />
       <h3>{freind.name}</h3>
-      <button>
+      <button onClick={onSelectedFreind}>
         <span>Select</span>
       </button>
 
