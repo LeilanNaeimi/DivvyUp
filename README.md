@@ -1,12 +1,12 @@
 # DivvyUP (Friend Expense Splitting App)
 
-## Still working on it to make a perfect App
+## Still working on it to make a perfect App 💻🎈
 
 ![Screenshot (27)](https://github.com/LeilanNaeimi/DivvyUp/assets/7776224/5f51a054-25e4-439b-887e-d06c9a0ebd55)
 
 DivvyUp is a modern web application built using HTML, CSS, and ReactJS, designed to simplify the process of splitting expenses among friends. This application provides a seamless experience for managing shared finances within a friend group. Let's explore the key features and technologies used in the project:
 
-## Dynamic Friend List: 
+### Dynamic Friend List: 
 
 * Users can view and manage their list of friends, each represented with an image, name, and current balance.
 The friend list dynamically updates as new friends are added, ensuring an up-to-date overview of financial relationships.
