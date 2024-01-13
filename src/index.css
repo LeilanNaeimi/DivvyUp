@@ -13,7 +13,7 @@
 
   --bg: #2b2a2a;
   --color-light1: #e8f6ef;
-  --color-dark: #8a8a8a;
+  --color-dark: #424242;
   --color-green: #36dfc0;
   --color-red: #e05b5b;
 
@@ -246,4 +246,8 @@ button::after {
 #pplexp {
   background-color: var(--color-dark);
   color: var(--color-light1);
+}
+
+.selected {
+  background-color: var(--color-dark);
 }

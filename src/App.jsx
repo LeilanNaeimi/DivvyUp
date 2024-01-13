@@ -39,14 +39,19 @@ export default function App() {
   }
 
   function handleSeletedFreind(freind) {
-    // console.log(freind);
-    setSelectedFreind(freind);
+    setSelectedFreind((cur) => (cur?.id === freind.id ? null : freind));
+    setShowAddFreind(false);
+    // setSelectedFreind(freind);
   }
 
   return (
     <div className="app">
       <div className="left ">
-        <FreindsList freinds={freinds} onSelectedFreind={handleSeletedFreind} />
+        <FreindsList
+          freinds={freinds}
+          selectedFreind={selectedFreind}
+          onSelectedFreind={handleSeletedFreind}
+        />
 
         {showAddFreind && <AddFreind onAddFreind={handleAddFreind} />}
 
@@ -60,12 +65,13 @@ export default function App() {
   );
 }
 
-function FreindsList({ freinds, onSelectedFreind }) {
+function FreindsList({ freinds, selectedFreind, onSelectedFreind }) {
   return (
     <ul className="FreindsList">
       {freinds.map((freind) => (
         <Freind
           freind={freind}
+          selectedFreind={selectedFreind}
           onSelectedFreind={onSelectedFreind}
           key={freind.id}
         />
@@ -74,14 +80,15 @@ function FreindsList({ freinds, onSelectedFreind }) {
   );
 }
 
-function Freind({ freind, onSelectedFreind }) {
+function Freind({ freind, selectedFreind, onSelectedFreind }) {
+  const isSelected = selectedFreind?.id === freind.id;
   return (
-    <li>
+    <li className={isSelected ? "selected" : ""}>
       <img src={freind.image} alt={freind.name} />
       <h3>{freind.name}</h3>
 
       <button onClick={() => onSelectedFreind(freind)}>
-        <span>Select</span>
+        <span>{isSelected ? "Close" : "Select"}</span>
       </button>
 
       {freind.balance < 0 && (
