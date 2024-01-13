@@ -86,19 +86,18 @@ body {
   font-size: 1.4rem;
 }
 
-.split {
-  height: 450px;
-}
-
 .FreindsList button {
   margin-right: 10px;
+}
+
+.split {
+  height: 450px;
 }
 
 ul {
   list-style: none;
   display: flex;
   flex-direction: column;
-  /* height: 380px; */
   overflow-y: scroll;
   margin-right: 20px;
 }
@@ -126,7 +125,7 @@ li img {
 form {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  text-align: center;
   gap: 1rem;
 }
 
@@ -144,16 +143,18 @@ form button {
   width: 80%;
   height: 30px;
   display: flex;
-  flex-direction: row; /* Align label and input in a row */
-  align-items: center; /* Vertically center items in the flex container */
-  margin-bottom: 10px;
+  /* Align label and input in a row */
+  flex-direction: row;
+  /* Vertically center items in the flex container */
+  /* margin-bottom: 10px; */
+  align-items: center;
   border-radius: var(--br);
-  margin-left: 3rem;
+  align-self: center;
 }
 
-.split-input-group label {
+/* .split-input-group label {
   margin-right: 10px;
-}
+} */
 
 .split-input-group select {
   padding: 0.7rem;

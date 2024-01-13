@@ -158,31 +158,54 @@ function AddFreind({ onAddFreind }) {
 }
 
 function Split({ selectedFreind }) {
-  // console.log(selectedFreind);
+  const [bill, setBill] = useState("");
+  const [paidByUser, setPaidByUser] = useState("");
+  const [whoIsPaying, setWhoIsPaying] = useState("user");
+  const paidByFreind = bill ? bill - paidByUser : "";
+
   return (
     <form className="split">
       <h3>Split a bill with {selectedFreind.name}</h3>
 
       <div className="split-input-group">
         <label htmlFor="billvalue">💲 Bill value</label>
-        <input type="text" id="billvalue" />
+        <input
+          type="text"
+          id="billvalue"
+          value={bill}
+          onChange={(e) => setBill(Number(e.target.value))}
+        />
       </div>
 
       <div className="split-input-group">
         <label htmlFor="expense">🙋‍♂️ Your Expense</label>
-        <input type="text" id="expense" />
+        <input
+          type="text"
+          id="expense"
+          value={paidByUser}
+          onChange={(e) =>
+            setPaidByUser(
+              Number(e.target.value) > bill
+                ? paidByUser
+                : Number(e.target.value)
+            )
+          }
+        />
       </div>
 
       <div className="split-input-group">
         <label htmlFor="pplexp">👩‍🦰 ppl Expense</label>
-        <input type="text" id="pplexp" readOnly value={selectedFreind.name} />
+        <input type="text" id="pplexp" readOnly value={paidByFreind} />
       </div>
 
       <div className="split-input-group">
         <p>💰 Who's paying the bill?</p>
-        <select>
+        <select
+          value={whoIsPaying}
+          onChange={(e) => setWhoIsPaying(e.target.value)}
+        >
           <option value="user">You</option>
-          <option value="ppl">{selectedFreind.name}</option>
+          <option value="friend">{selectedFreind.name}</option>
         </select>
       </div>
 
