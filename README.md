@@ -6,7 +6,7 @@ DivvyUp is a modern web application built using HTML, CSS, and ReactJS, designed
 
 ## Key Features:
 
-## Dynamic Friend List:
+## Dynamic Friend List: 
 
 * Users can view and manage their list of friends, each represented with an image, name, and current balance.
 The friend list dynamically updates as new friends are added, ensuring an up-to-date overview of financial relationships.
@@ -34,19 +34,24 @@ Technologies Used:
 ## ReactJS:
 
 * The core of Divvy Up is built using ReactJS, a powerful JavaScript library for building interactive user interfaces. React components are employed to create a modular and maintainable codebase.
-State Management with React Hooks:
+  
+### State Management with React Hooks:
 
 * Stateful components use React Hooks, such as useState, for efficient state management. This enables dynamic updates and responsiveness in the application.
+  
 Conditional Rendering:
 
 * Conditional rendering is employed to show or hide components based on user interactions, providing a clean and intuitive user interface.
-Form Handling:
+
+### Form Handling:
 
 * React-controlled components and form handling techniques are used to collect user input, ensuring accurate data submission.
-CSS Styling:
+
+### CSS Styling:
 
 * Cascading Style Sheets (CSS) are applied for styling and theming, creating an aesthetically pleasing and cohesive design.
-Component Reusability:
 
-* The project follows the principles of component-based architecture, promoting reusability and maintainability of code.
+### Component Reusability:
+
+The project follows the principles of component-based architecture, promoting reusability and maintainability of code.
 Divvy Up offers an efficient and enjoyable solution for friends to manage their shared expenses, fostering transparency and fairness in financial transactions. The combination of ReactJS and thoughtful design choices results in a user-friendly application for hassle-free expense splitting.
