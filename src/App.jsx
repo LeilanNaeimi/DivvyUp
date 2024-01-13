@@ -44,6 +44,17 @@ export default function App() {
     // setSelectedFreind(freind);
   }
 
+  function handleSplitBill(value) {
+    console.log(value);
+    setFreinds((freinds) =>
+      freinds.map((freind) =>
+        freind.id === selectedFreind.id
+          ? { ...freind, balance: freind.balance + value }
+          : freind
+      )
+    );
+  }
+
   return (
     <div className="app">
       <div className="left ">
@@ -59,7 +70,9 @@ export default function App() {
           <span>{showAddFreind ? "Close" : "Add New Freind"}</span>
         </button>
       </div>
-      {selectedFreind && <Split selectedFreind={selectedFreind} />}
+      {selectedFreind && (
+        <Split selectedFreind={selectedFreind} onSplitBill={handleSplitBill} />
+      )}
       <ButtonUI />
     </div>
   );
@@ -157,14 +170,21 @@ function AddFreind({ onAddFreind }) {
   );
 }
 
-function Split({ selectedFreind }) {
+function Split({ selectedFreind, onSplitBill }) {
   const [bill, setBill] = useState("");
   const [paidByUser, setPaidByUser] = useState("");
   const [whoIsPaying, setWhoIsPaying] = useState("user");
   const paidByFreind = bill ? bill - paidByUser : "";
 
+  function handleSubmit(e) {
+    e.preventDefault();
+
+    if (!bill || !paidByUser) return;
+    onSplitBill(whoIsPaying === "user" ? paidByFreind : -paidByUser);
+  }
+
   return (
-    <form className="split">
+    <form className="split" onSubmit={handleSubmit}>
       <h3>Split a bill with {selectedFreind.name}</h3>
 
       <div className="split-input-group">
