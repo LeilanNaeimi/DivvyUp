@@ -1,8 +1,5 @@
-# React + Vite
+# DivvuUP
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![Screenshot (27)](https://github.com/LeilanNaeimi/DivvyUp/assets/7776224/5f51a054-25e4-439b-887e-d06c9a0ebd55)
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+ 
