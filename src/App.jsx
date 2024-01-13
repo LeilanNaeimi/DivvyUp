@@ -24,6 +24,7 @@ const initialFriends = [
 
 export default function App() {
   const [showAddFreind, setShowAddFreind] = useState(false);
+  const [freinds, setFreinds] = useState(initialFriends);
 
   function handleShowAddFreind() {
     setShowAddFreind(!showAddFreind);
@@ -31,8 +32,9 @@ export default function App() {
 
   return (
     <div className="app">
-      <div className="left">
-        <Freinds /> {showAddFreind && <AddFreind />}
+      <div className="left ">
+        <FreindsList freinds={freinds} />
+        {showAddFreind && <AddFreind />}
         <button className="addnew" onClick={handleShowAddFreind}>
           <span>{showAddFreind ? "Close" : "Add New Freind"}</span>
         </button>
@@ -43,48 +45,38 @@ export default function App() {
   );
 }
 
-function Freinds() {
-  return (
-    <div className="people">
-      <FreindsList />
-    </div>
-  );
-}
-
-function FreindsList() {
-  const ppls = initialFriends;
-
+function FreindsList({ freinds }) {
   return (
     <ul className="FreindsList">
-      {ppls.map((ppl) => (
-        <Freind ppl={ppl} key={ppl.id} />
+      {freinds.map((freind) => (
+        <Freind freind={freind} key={freind.id} />
       ))}
     </ul>
   );
 }
 
-function Freind({ ppl }) {
+function Freind({ freind }) {
   return (
     <li>
-      <img src={ppl.image} alt={ppl.name} />
-      <h3>{ppl.name}</h3>
+      <img src={freind.image} alt={freind.name} />
+      <h3>{freind.name}</h3>
       <button>
         <span>Select</span>
       </button>
 
-      {ppl.balance < 0 && (
+      {freind.balance < 0 && (
         <p className="red">
-          You owe {ppl.name} € {Math.abs(ppl.balance)}
+          You owe {freind.name} € {Math.abs(freind.balance)}
         </p>
       )}
 
-      {ppl.balance > 0 && (
+      {freind.balance > 0 && (
         <p className="green">
-          {ppl.name} owes you € {Math.abs(ppl.balance)}
+          {freind.name} owes you € {Math.abs(freind.balance)}
         </p>
       )}
 
-      {ppl.balance === 0 && <p>You are even!</p>}
+      {freind.balance === 0 && <p>You are even!</p>}
     </li>
   );
 }
