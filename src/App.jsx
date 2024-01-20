@@ -71,7 +71,11 @@ export default function App() {
         </button>
       </div>
       {selectedFreind && (
-        <Split selectedFreind={selectedFreind} onSplitBill={handleSplitBill} />
+        <Split
+          selectedFreind={selectedFreind}
+          onSplitBill={handleSplitBill}
+          key={selectedFreind.id}
+        />
       )}
       <ButtonUI />
     </div>
