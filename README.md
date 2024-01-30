@@ -4,6 +4,8 @@
 
 ![Screenshot (27)](https://github.com/LeilanNaeimi/DivvyUp/assets/7776224/5f51a054-25e4-439b-887e-d06c9a0ebd55)
 
+* based on jonas schmidtmaan's udemy course
+  
 DivvyUp is a modern web application built using HTML, CSS, and ReactJS, designed to simplify the process of splitting expenses among friends. This application provides a seamless experience for managing shared finances within a friend group. Let's explore the key features and technologies used in the project:
 
 ### Dynamic Friend List: 
