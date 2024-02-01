@@ -1,5 +1,9 @@
 # DivvyUP (Friend Expense Splitting App)
 
+
+https://github.com/naleilan/DivvyUp/assets/7776224/81947b2c-26de-4322-96f9-8aa5c43c793c
+
+
 ## Still working on it to make a perfect App 💻🎈
 
 ![Screenshot (27)](https://github.com/LeilanNaeimi/DivvyUp/assets/7776224/5f51a054-25e4-439b-887e-d06c9a0ebd55)
